@@ -24,7 +24,7 @@ def product(req):
         serializer = ProductSerializer(products, many=True)
         return Response(serializer.data)
     elif req.method == 'POST':
-        serializer = ProductSerializer(data=serializer.data)
+        serializer = ProductSerializer(data=req.data)
         if serializer.is_valid():
             serializer.save()
             data = {
